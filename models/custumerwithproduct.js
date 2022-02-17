@@ -18,9 +18,9 @@ module.exports = (sequelize, DataTypes) => {
   CustumerWithProduct.init({
     id:             {type: DataTypes.INTEGER, primaryKey: true},
     
-    last_point_place: {type: DataTypes.STRING, allowNull: false},
-    number_of_view:   {type: DataTypes.STRING, allowNull: false},
-    courier:           {type: DataTypes.STRING, allowNull: false},
+    // last_point_place: {type: DataTypes.STRING, allowNull: false},
+    // number_of_view:   {type: DataTypes.STRING, allowNull: false},
+    // courier:           {type: DataTypes.STRING, allowNull: false},
     departureDate:  {type: DataTypes.STRING, allowNull: false},
     timeOfDelivery: {type: DataTypes.STRING, allowNull: false},
     trackNumber:    {type: DataTypes.STRING, allowNull: false},

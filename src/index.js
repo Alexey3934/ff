@@ -163,16 +163,22 @@ async function update_dom(str_main, str_embe, str_end, name_of_custumer) {
                   const track_number = CSSselect.selectOne('#track_number', dom_embe)
                   track_number.children[0].data = item.trackNumber
                 // update статус из state
+                  const first_state         = CSSselect.selectOne('#first_state', dom_embe)
+                  // console.log(first_state)
+                  const second_state        = CSSselect.selectOne('#second_state', dom_embe)
+                  const third_state         = CSSselect.selectOne('#third_state', dom_embe)
+                  const fourth_state        = CSSselect.selectOne('#fourth_state', dom_embe)
                   const state_data          = item.state
-                  const state_element       = CSSselect.selectOne('#state', dom_embe)
+                  // const state_element       = id="first_starus"
                   const state_line          = CSSselect.selectOne('#state_line', dom_embe)
                   const state_icon          = CSSselect.selectOne('#state_icon', dom_embe)
                   const state_circle_second = CSSselect.selectOne('#circle_second', dom_embe)
                   const state_circle_third  = CSSselect.selectOne('#circle_third', dom_embe)
                   const state_circle_fourth = CSSselect.selectOne('#circle_fourth', dom_embe)
-                  state_element.children[0].data = state_data    
+                  // state_element.children[0].data = state_data    
                   switch (item.state) {
                     case "Проверка заказа": 
+                      first_state.attribs['font-weight'] = 'bold';
                       state_line.attribs.x2 = '20%';
                       state_icon.attribs.x  = '19%';
                       state_circle_second.attribs.fill = 'white'
@@ -180,6 +186,7 @@ async function update_dom(str_main, str_embe, str_end, name_of_custumer) {
                       state_circle_fourth.attribs.fill = 'white'
                       break;    
                     case "Заказ обрабатывается":
+                      second_state.attribs['font-weight'] = 'bold';
                       state_line.attribs.x2 = '40%';
                       state_icon.attribs.x  = '39%'
                       state_circle_second.attribs.fill = 'black'
@@ -187,6 +194,7 @@ async function update_dom(str_main, str_embe, str_end, name_of_custumer) {
                       state_circle_fourth.attribs.fill = 'white'
                       break;
                     case "Заказ отправлен":
+                      third_state.attribs['font-weight'] = 'bold';
                       state_line.attribs.x2 = '60%';
                       state_icon.attribs.x  = '59%'
                       state_circle_second.attribs.fill = 'black'
@@ -194,6 +202,7 @@ async function update_dom(str_main, str_embe, str_end, name_of_custumer) {
                       state_circle_fourth.attribs.fill = 'white'
                       break;    
                     case "Заказ доставлен":
+                      fourth_state.attribs['font-weight'] = 'bold';
                       state_line.attribs.x2 = '80%';
                       state_icon.attribs.x  = '79%'
                       state_circle_second.attribs.fill = 'black'
@@ -228,14 +237,14 @@ async function update_dom(str_main, str_embe, str_end, name_of_custumer) {
                     const from = CSSselect.selectOne('#from', dom_embe)
                     from.children[0].data = " из " + data_from_link.from
                 // последняя точка регистрации
-                     const last_place = CSSselect.selectOne('#last_place', dom_embe)
-                     last_place.children[0].data = item.last_point_place
+                    //  const last_place = CSSselect.selectOne('#last_place', dom_embe)
+                    //  last_place.children[0].data = item.last_point_place
                 // последнее место отслеживания 
-                     const number_of_view = CSSselect.selectOne('#number_of_view', dom_embe)
-                     number_of_view.children[0].data = item.number_of_view
+                    //  const number_of_view = CSSselect.selectOne('#number_of_view', dom_embe)
+                    //  number_of_view.children[0].data = item.number_of_view
                 // курьер 
-                     const courier = CSSselect.selectOne('#courier', dom_embe)
-                     courier.children[0].data = item.courier
+                    //  const courier = CSSselect.selectOne('#courier', dom_embe)
+                    //  courier.children[0].data = item.courier
                 // количество посылок 1 из 2 например
                       const quontity_items_el = CSSselect.selectOne('#quontity_items', dom_embe)
                       if (quontity_of_items == 1) {
