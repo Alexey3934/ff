@@ -1,0 +1,20 @@
+
+
+window.universal_variable = window.universal_variable || {};
+
+
+                window.universal_variable.user = {"geoCountryCode":"RU","name":"Mark Us Player","email":"mark2001ustinov@gmail.com","hashedEmail":"dcb9e08b22fb157f8b2ea32bc1269308","returning":true,"hasTransacted":true,"language":"ru","countryId":170,"countryCode":"RU","geoCountryId":170,"geoSubfolder":"/ru","userSubfolder":"/ru","userId":85129107,"isLogged":true,"ip":"45.142.122.186","isBot":false,"cookieId":"b0073c46-d01d-4646-b6d3-9205d2bf84c3","sessionId":"64639c9d-71fe-2feb-f93d-0bad14a00174","basketId":"e689d412-ecb2-4fe0-9cd0-d27f98e97b9a","checkoutType":0,"benefits":[{"Code":"transactional-comms-pc"},{"Code":"product-tag-beat"}],"firstName":"6201eb4dccc956cc4fa3a78dca0c2888177ec52efd48f125df214f046eb43138","lastName":"cdb59355f3ba293977fc0945fb85f11822d412c45c7520c7121bd2234f6c1f48","gender":"NotDefined","genderId":0,"city":"017a80b680ac2531b4caa82c4659f007fcfbac1195d57c9ebbbf0e5eb8766eb5","zipCode":"a843e8e68467141b0db8d97de7cfc74f98bc34736a0dedef780bf167141e3ecf","hashedSHA256Email":"44127e9b33c7b72942b13ffd079c8ac53f832fb44de4f50d1f8d8faa57851d59","wishListQuantity":0,"promocodes":[],"bct":"183512","accessTier":null,"isMobile":false};
+            
+                window.universal_variable.basket = {"shipping":0.0,"subTotal":0.0,"subTotalIncludeTax":false,"tax":0.0,"total":0.0,"lineItems":[],"isShippingAddressClickAndCollect":false};
+            
+if (window.universal_variable.user) {
+    var uvUserEvt = document.createEvent('Event');
+    uvUserEvt.initEvent('universal_variable.user', true, true);
+    document.dispatchEvent(uvUserEvt);
+
+    var uvLoadedEvt = document.createEvent('Event');
+    uvLoadedEvt.initEvent('uvLoaded', true, true);
+    document.dispatchEvent(uvLoadedEvt);
+
+    window.events.emit('userLoaded');
+}

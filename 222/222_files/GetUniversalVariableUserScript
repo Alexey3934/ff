@@ -1,0 +1,20 @@
+
+
+window.universal_variable = window.universal_variable || {};
+
+
+                window.universal_variable.user = {"geoCountryCode":"RU","returning":false,"language":"ru","countryId":170,"countryCode":"RU","geoCountryId":170,"geoSubfolder":"/ru","userSubfolder":"/ru","userId":5000011519754895,"isLogged":false,"ip":"45.142.122.186","isBot":false,"cookieId":"647507c1-9b20-4f0d-904e-4f332c974b87","sessionId":"d3d823f6-2532-bae5-65a3-4ec3ec3d4637","basketId":"c7b7a03e-7577-4926-b4ce-bf6f337ed385","checkoutType":0,"benefits":[{"Code":"transactional-comms-pc"},{"Code":"product-tag-beat"},{"Code":"no-op"}],"genderId":0,"wishListQuantity":0,"bct":"108842","accessTier":null,"isMobile":false};
+            
+                window.universal_variable.basket = {"shipping":0.0,"subTotal":0.0,"subTotalIncludeTax":false,"tax":0.0,"total":0.0,"lineItems":[],"isShippingAddressClickAndCollect":false};
+            
+if (window.universal_variable.user) {
+    var uvUserEvt = document.createEvent('Event');
+    uvUserEvt.initEvent('universal_variable.user', true, true);
+    document.dispatchEvent(uvUserEvt);
+
+    var uvLoadedEvt = document.createEvent('Event');
+    uvLoadedEvt.initEvent('uvLoaded', true, true);
+    document.dispatchEvent(uvLoadedEvt);
+
+    window.events.emit('userLoaded');
+}

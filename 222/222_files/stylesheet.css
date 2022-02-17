@@ -1,0 +1,48 @@
+@font-face {
+   font-family: 'TradeGothicLTStd';
+   src: url('https://static.mention-me.com/fonts/farfetch/5f579c59c03b6/TradeGothicLTStd.woff2') format('woff2'), 
+        url('https://static.mention-me.com/fonts/farfetch/5f579c59c03b6/TradeGothicLTStd.woff') format('woff'), 
+        url('https://static.mention-me.com/fonts/farfetch/5f579c59c03b6/TradeGothicLTStd.otf') format('opentype'); 
+}
+@font-face {
+   font-family: 'TradeGothicLTStd-Light';
+   src: url('https://static.mention-me.com/fonts/farfetch/5f579c59c03b6/TradeGothicLTStd-Light.woff2') format('woff2'), 
+        url('https://static.mention-me.com/fonts/farfetch/5f579c59c03b6/TradeGothicLTStd-Light.woff') format('woff'), 
+        url('https://static.mention-me.com/fonts/farfetch/5f579c59c03b6/TradeGothicLTStd-Light.otf') format('opentype'); 
+}
+@font-face {
+   font-family: 'TradeGothicLTStd-BdCn20';
+   src: url('https://static.mention-me.com/fonts/farfetch/5f579c59c03b6/TradeGothicLTStd-BdCn20.woff2') format('woff2'), 
+        url('https://static.mention-me.com/fonts/farfetch/5f579c59c03b6/TradeGothicLTStd-BdCn20.woff') format('woff'), 
+        url('https://static.mention-me.com/fonts/farfetch/5f579c59c03b6/TradeGothicLTStd-BdCn20.otf') format('opentype'); 
+}
+@font-face {
+   font-family: 'PolarisCondensed-Bold';
+   src: url('https://static.mention-me.com/fonts/farfetch/5f579c59c03b6/PolarisCondensed-Bold.woff2') format('woff2'), 
+        url('https://static.mention-me.com/fonts/farfetch/5f579c59c03b6/PolarisCondensed-Bold.woff') format('woff'), 
+        url('https://static.mention-me.com/fonts/farfetch/5f579c59c03b6/PolarisCondensed-Bold.ttf') format('truetype'); 
+}
+@font-face {
+   font-family: 'Polaris-Book';
+   src: url('https://static.mention-me.com/fonts/farfetch/5f579c59c03b6/Polaris-Book.woff2') format('woff2'), 
+        url('https://static.mention-me.com/fonts/farfetch/5f579c59c03b6/Polaris-Book.woff') format('woff'), 
+        url('https://static.mention-me.com/fonts/farfetch/5f579c59c03b6/Polaris-Book.ttf') format('truetype'); 
+}
+@font-face {
+   font-family: 'Polaris-Bold';
+   src: url('https://static.mention-me.com/fonts/farfetch/5f579c59c03b6/Polaris-Bold.woff2') format('woff2'), 
+        url('https://static.mention-me.com/fonts/farfetch/5f579c59c03b6/Polaris-Bold.woff') format('woff'), 
+        url('https://static.mention-me.com/fonts/farfetch/5f579c59c03b6/Polaris-Bold.ttf') format('truetype'); 
+}
+@font-face {
+   font-family: 'FarfetchBasis-Regular';
+   src: url('https://static.mention-me.com/fonts/farfetch/5f579c59c03b6/FarfetchBasis-Regular.woff2') format('woff2'), 
+        url('https://static.mention-me.com/fonts/farfetch/5f579c59c03b6/FarfetchBasis-Regular.woff') format('woff'), 
+        url('https://static.mention-me.com/fonts/farfetch/5f579c59c03b6/FarfetchBasis-Regular.ttf') format('truetype'); 
+}
+@font-face {
+   font-family: 'DINNextLTArabic-Regular';
+   src: url('https://static.mention-me.com/fonts/farfetch/5f579c59c03b6/DINNextLTArabic-Regular.woff2') format('woff2'), 
+        url('https://static.mention-me.com/fonts/farfetch/5f579c59c03b6/DINNextLTArabic-Regular.woff') format('woff'), 
+        url('https://static.mention-me.com/fonts/farfetch/5f579c59c03b6/DINNextLTArabic-Regular.ttf') format('truetype'); 
+}
