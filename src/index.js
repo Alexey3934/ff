@@ -220,16 +220,20 @@ async function update_dom(str_main, str_embe, str_end, name_of_custumer) {
                     img_el.attribs.src = data_from_link.img
                 // fill name of product
                     const name_of_product = CSSselect.selectOne('#name_of_product', dom_embe)
+                    console.log(name_of_product)
                     name_of_product.children[0].data = data_from_link.name
+                // brand
+                    const brand = CSSselect.selectOne('#brand', dom_embe)
+                    brand.children[0].data = data_from_link.brand
                 //fill артикул
                     const articul = CSSselect.selectOne('#articul', dom_embe)
                     articul.children[0].data = "Артикул " + data_from_link.articul
                 // fill размер
                     const size = CSSselect.selectOne('#size', dom_embe)
-                    size.children[0].data = "Размер " + item.size
+                    size.children[0].data = "Размер : " + item.size
                 // fill количество
                     const quantity = CSSselect.selectOne('#quantity', dom_embe)
-                    quantity.children[0].data = "Количество " + item.quantity
+                    quantity.children[0].data = "Количество : " + item.quantity
                 // fill ожидаемая дата доставки
                     const delivery = CSSselect.selectOne('#delivery', dom_embe)
                     delivery.children[0].data = item.timeOfDelivery

@@ -1,25 +1,13 @@
-// import _ from 'lodash'
-// import CSSselect from "css-select";
-const path   = require('path')
-const fs     = require('fs')
-const fetch  = require('node-fetch')
+const express = require("express")
+const fetch = require('node-fetch')
 const colors = require('colors')
-const { dirname } = require('path')
-// import htmlparser2 from "htmlparser2";
+const fs = require('fs')
 
+const app = express()
+const port = 4000
 
-//      const response = await fetch('https://www.farfetch.com/ru/shopping/women/amir-slama--item-15761719.aspx?storeid=9682&rtype=inspire_portal_pdp_generic_a&rpos=4&rid=a0b85056-a837-4046-9e44-03967299b7dc')
-//      const str = await response.text()
-
-
-/////////////////////////////  парсинг только через строку   ////////////////////////////
-
-
-
-
-async function fn(url) {
-
-        
+// const url = 'https://example.com'
+// const url = `http://localhost:${port}/fetching`
 
 
 const headers =  {
@@ -30,114 +18,30 @@ const headers =  {
     "accept-language": "en-US,en;q=0.9,ru-RU;q=0.8,ru;q=0.7",
 }
 
+// const url = 'https://www.farfetch.com/ru/shopping/women/dolce-gabbana-carretto-item-17690928.aspx?storeid=13098'
+const url = "https://www.farfetch.com/ru/shopping/women/alexander-mcqueen--item-17777738.aspx?storeid=9843" // f11.html
+const fetching = (url) => fetch(url, {"headers": headers}) 
 
-        
-        let str = ''
-        // str = fs.readFileSync(path.resolve(__dirname,  'goods/f11.html'), 'utf8')
-        async function fun() {
-             try {   
-                const response = await fetch(url, {"headers": headers})
-                
 
-                str = await response.text()
-                fs.writeFile('./goods/f11.html', str, ()=>{})
-                console.log('valid input'.bgGreen)
-             } catch(er) {
-                     return 'invalid input'
-
-             }
-        } 
-        if(await fun() == 'invalid input') return 'invalid input of link field'
+app.get('/fetching', (req, res)=>{
+    console.log(colors.bgBlue('incoming "/fetching" '))
+    console.log(req.headers)
+    res.send('<h1>OK2</h1>')
+})
 
 
 
-
-        const data = {}
-        console.log('second'.red)
-        // откуда
-        // const subStrFrom        = 'shippingFromMessage\\":\\'
-        // const startIndexFrom = str.indexOf(subStrFrom)+subStrFrom.length
-        // const endIndexFrom   = str.indexOf('\\', startIndexFrom)
-        // const from = str.slice(startIndexFrom, endIndexFrom)
-        // // console.log('откуда = '.red, from.bgBlue)
-        // data.from = from
-
-       const subStrFrom        = 'Доставка из:'
-        const startIndexFrom = str.indexOf(subStrFrom)+subStrFrom.length
-        const endIndexFrom   = str.indexOf('\\', startIndexFrom)
-        const from = str.slice(startIndexFrom, endIndexFrom)
-        // console.log('откуда = '.red, from.bgBlue)
-        data.from = from
+app.get('/', async (req, res) => {
+    console.log(colors.bgGreen('incoming "/" '))
+    try{
+        const response =  await fetching(url)
+        const str = await response.text()
+        fs.writeFile('./goods/f11.html', str, ()=>{})
+    } catch (err) {
+        console.log(`error = ${err}`)
+    }
+    res.send('<h1>OK1</h1>')
+})
 
 
-// стоимость
-        const subStrMoney = 'property="twitter:data1" content="'
-        const startIndexMoney = str.indexOf(subStrMoney) + subStrMoney.length
-        const endIndexMoney   = str.indexOf('"', startIndexMoney)
-        let money = str.slice(startIndexMoney, endIndexMoney)
-
-        // if (money.includes('/')) {
-        //         money = money.replace('/', ' ')
-        // }
-
-        console.log('стоимость = '.red, money.bgBlue)
-        data.money = money
-        console.log(data.money)
-
-        // артикул бренда
-        const subStrArtikul        = '\\"designerStyleId\\":\\"'
-        const startIndexArtikul = str.indexOf(subStrArtikul)+subStrArtikul.length
-        const endIndexArtikul   = str.indexOf('\\', startIndexArtikul)
-        const articul = str.slice(startIndexArtikul, endIndexArtikul)
-        // console.log('aртикул = '.red, articul.bgBlue)
-        data.articul = articul
-
-        //картинка
-        const subStrImg        = '<img src="'
-        const startIndexImg = str.indexOf(subStrImg)+subStrImg.length
-        const endIndexImg   = str.indexOf('"', startIndexImg)
-        const img = str.slice(startIndexImg, endIndexImg)
-        // console.log('картинка = '.red, img.bgBlue)
-        data.img = img
-
-//название  
-        const subStrName        = ',\\"richText\\":{\\"description\\":null,\\"highlights\\":null},\\"shortDescription\\":\\"'
-        // console.log(str.indexOf(subStrName))
-        const startIndexName = str.indexOf(subStrName)+subStrName.length
-        const endIndexName   = str.indexOf('\\', startIndexName)
-        const name = str.slice(startIndexName, endIndexName)
-        // console.log('название с фирмой = '.red, name.bgBlue)
-        data.name = name
-        
-        // console.log(subStrName.length, '\n', str.length, '\n', startIndexName, endIndexName)
-        
-// фирма  
-        const sub_str_brand        = '",\\"href\\":\\"/ru/shopping/women/burberry/items.aspx\\"},{\\"noFollow\\":false,\\"cssClass\\":\\"no-color\\",\\"title\\":\\"'
-        const start_index_brand = str.indexOf(sub_str_brand)+sub_str_brand.length
-        const end_index_brand   = str.indexOf('\\', start_index_brand)
-        const brand = str.slice(start_index_brand, end_index_brand)
-        // console.log('название с фирмой = '.red, name.bgBlue)
-        data.brand = brand
-        // console.log(start_index_brand, end_index_brand)
-
-
-        // storeid=
-        //  const subStr_storeid        = 'storeid='
-        // const startIndex_storeid = str.indexOf(subStr_storeid)+subStr_storeid.length
-        // const endIndex_storeid   = str.indexOf('"', startIndex_storeid)
-        // const storeid = str.slice(startIndex_storeid, endIndex_storeid)
-        // console.log('название с фирмой = '.red, name.bgBlue)
-        // data.storeid = storeid
-        
-
-
-
-        const data_out = JSON.stringify(data)
-        // const data_out = data
-        console.log(data_out)
-        return data_out
-}
-module.exports.fn = fn;
-// fn('https://www.farfetch.com/ru/shopping/women/alexander-mcqueen-oversized-item-13528654.aspx?storeid=10503')
-// fn()
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
+app.listen(port, ()=> console.log(`listening on ${port} port`))
