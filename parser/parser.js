@@ -101,7 +101,7 @@ const headers =  {
         data.img = img
 
 //название  
-        const subStrName        = ',\\"richText\\":{\\"description\\":null,\\"highlights\\":null},\\"shortDescription\\":\\"'
+        const subStrName        = '},\\"shortDescription\\":\\"'
         // console.log(str.indexOf(subStrName))
         const startIndexName = str.indexOf(subStrName)+subStrName.length
         const endIndexName   = str.indexOf('\\', startIndexName)

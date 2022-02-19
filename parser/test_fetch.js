@@ -19,7 +19,8 @@ const headers =  {
 }
 
 // const url = 'https://www.farfetch.com/ru/shopping/women/dolce-gabbana-carretto-item-17690928.aspx?storeid=13098'
-const url = "https://www.farfetch.com/ru/shopping/women/alexander-mcqueen--item-17777738.aspx?storeid=9843" // f11.html
+const url = "https://www.farfetch.com/ru/shopping/women/off-white-vulcanized-item-17590452.aspx?storeid=12572" // f11.html
+
 const fetching = (url) => fetch(url, {"headers": headers}) 
 
 
